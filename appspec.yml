@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/*.jar
+    destination: /var/myapp
+hooks:
+  ApplicationStop:
+    - location: stop_server.sh
+  BeforeInstall:
+    - location: install_dependencies.sh
+  AfterInstall:
+    - location: start_server.sh
